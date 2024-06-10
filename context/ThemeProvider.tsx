@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 // create context type
 interface ThemeContextType {
@@ -41,3 +41,13 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 export default ThemeProvider;
+
+
+// create custom hook
+export function useTheme () {
+    const context = useContext(ThemeContext)
+    if (context === undefined) {
+        throw new Error('useTheme must be used within a ThemeProvider')
+    }
+    return context;
+}
