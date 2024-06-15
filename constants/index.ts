@@ -24,6 +24,27 @@ export const navbarLinks: NavbarLink[] = [
       label: "Contact",
     },
   ];
+
+
+  export const dashLinks = [
+    {
+      url: "/dashboard",
+      label: "Dashboard",
+    },
+    {
+      url: "/dashboard/collections",
+      label: "Collections",
+    },
+    {
+      url: "/dashboard/orders",
+      label: "Orders",
+    },
+    {
+      url: "/dashboard/customers",
+      label: "Customers",
+    },
+  ];
+
 export const slides: slidesLink[] = [
     {
       imgUrl:"https://i.ibb.co/KLfVdFJ/christopher-gower-m-HRf-Lhg-ABo-unsplash.jpg",
