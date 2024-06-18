@@ -22,3 +22,29 @@ export interface CreateUserParams {
   export interface DeleteUserParams {
     clerkId: string;
   }
+
+
+  export interface ProductType {
+    _id: string;
+    title: string;
+    description: string;
+    media: [string];
+    category: string;
+    // eslint-disable-next-line no-use-before-define
+    collections: [CollectionType];
+    tags: [string];
+    price: number;
+    expense: number;
+    createdAt: Date;
+    updatedAt: Date;
+  }
+
+  export interface CollectionType  {
+    _id: string;
+    title: string;
+    description: string;
+    image: string;
+    products: ProductType[];
+  };
+
+  
