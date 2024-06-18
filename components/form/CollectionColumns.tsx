@@ -3,6 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 import Delete from "../custom ui/Delete";
 import Link from "next/link";
+import { CollectionType } from "@/lib/actions/shared.types";
 
 export const columns: ColumnDef<CollectionType>[] = [
   {
@@ -10,7 +11,7 @@ export const columns: ColumnDef<CollectionType>[] = [
     header: "Title",
     cell: ({ row }) => (
       <Link
-        href={`/collections/${row.original._id}`}
+        href={`/dashboard/collections/${row.original._id}`}
         className="hover:text-red-500"
       >
         {row.original.title}
