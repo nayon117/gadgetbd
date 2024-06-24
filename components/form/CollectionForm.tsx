@@ -145,10 +145,7 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
             )}
           />
           <div className="flex gap-10">
-            <Button disabled={loading} type="submit" className="bg-blue-400 text-white">
-            {loading ? "Submitting..." : "Submit"}
-            </Button>
-            <Button
+          <Button
               type="button"
               onClick={() => router.push("/dashboard/collections")}
               className="bg-blue-400 text-white"
@@ -156,6 +153,10 @@ const CollectionForm: React.FC<CollectionFormProps> = ({ initialData }) => {
             >
               Discard
             </Button>
+            <Button disabled={loading} type="submit" className="bg-blue-400 text-white">
+            {loading ? "Submitting..." : "Submit"}
+            </Button>
+           
           </div>
         </form>
       </Form>

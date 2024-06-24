@@ -36,6 +36,10 @@ export const navbarLinks: NavbarLink[] = [
       label: "Collections",
     },
     {
+      url: "/dashboard/products",
+      label: "Products",
+    },
+    {
       url: "/dashboard/orders",
       label: "Orders",
     },

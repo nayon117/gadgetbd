@@ -23,6 +23,14 @@ export interface CreateUserParams {
     clerkId: string;
   }
 
+  export interface CollectionType  {
+    _id: string;
+    title: string;
+    description: string;
+    image: string;
+    // eslint-disable-next-line no-use-before-define
+    products: ProductType[];
+  };
 
   export interface ProductType {
     _id: string;
@@ -30,7 +38,6 @@ export interface CreateUserParams {
     description: string;
     media: [string];
     category: string;
-    // eslint-disable-next-line no-use-before-define
     collections: [CollectionType];
     tags: [string];
     price: number;
@@ -39,12 +46,6 @@ export interface CreateUserParams {
     updatedAt: Date;
   }
 
-  export interface CollectionType  {
-    _id: string;
-    title: string;
-    description: string;
-    image: string;
-    products: ProductType[];
-  };
+ 
 
   

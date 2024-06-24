@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import Loader from "@/components/custom ui/Loader";
 import CollectionForm from "@/components/form/CollectionForm";
+import { CollectionType } from "@/lib/actions/shared.types";
 
 const CollectionDetails = ({
   params,
