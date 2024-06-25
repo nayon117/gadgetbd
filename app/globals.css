@@ -61,6 +61,13 @@ body {
 .no-focus {
   @apply focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
 }
+.input {
+  @apply  border border-gray-200 text-gray-900 text-sm rounded-lg  block w-full p-2.5 mt-2.5 font-normal shadow-light-100 dark:shadow-dark-100;
+}
+
+.textarea {
+  @apply block p-2.5 w-full text-sm text-gray-900 rounded-lg border border-gray-200  mt-2.5 font-normal shadow-light-100 dark:shadow-dark-100;
+}
 
 .active-theme {
   filter: invert(53%) sepia(98%) saturate(3332%) hue-rotate(250deg)
