@@ -1,11 +1,10 @@
+import Banner from "@/components/shared/Banner";
 
 const page = () => {
   return (
-    <section className=''>
-      <div className=''>
-        Welcome to page
-      </div>
-    </section>
-  )
-}
+    <div>
+      <Banner />
+    </div>
+  );
+};
 export default page;
