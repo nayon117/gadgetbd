@@ -46,6 +46,12 @@ export interface CreateUserParams {
     updatedAt: Date;
   }
 
+  export interface UserType  {
+    clerkId: string;
+    wishlist: [string];
+    createdAt: string;
+    updatedAt: string;
+  };
  
 
   

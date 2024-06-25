@@ -7,9 +7,11 @@ import Theme from "./Theme";
 import { navbarLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import useCart from "@/lib/hooks/useCart";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const cart = useCart();
   return (
     <nav className="background-light900_dark200 fixed z-50 flex  w-full items-center justify-between gap-5 p-6 shadow-light-300 dark:shadow-none sm:px-12">
       <Link className="flex items-center gap-1" href="/">
@@ -81,6 +83,13 @@ const Navbar = () => {
             }}
           />
         </SignedIn>
+        <div className="ml-2 flex items-center gap-2">
+          <Image src="/icons/heart.svg" alt="login" width={20} height={20} />
+          <Link href={`/cart`} className="flex items-center">
+            <Image src="/icons/cart.svg" alt="login" width={20} height={20} />
+            <p>({cart.cartItems.length})</p>
+          </Link>
+        </div>
         <MobileNav />
       </div>
     </nav>
