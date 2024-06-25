@@ -36,7 +36,7 @@ const Cart = () => {
         const data = await res.json();
         window.location.href = data.url;
        
-      }
+      } 
     } catch (err) {
       console.log("[checkout_POST]", err);
     }
