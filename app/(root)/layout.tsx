@@ -1,3 +1,4 @@
+import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/navbar/Navbar";
 import React from "react";
 
@@ -10,6 +11,7 @@ const HomeLayout = ({children}:{children:React.ReactNode}) => {
                 {children}
                 </div>
             </div>
+            <Footer/>
         </section>
     )
 }
