@@ -109,4 +109,43 @@ export const slides: slidesLink[] = [
         '"As a tech enthusiast, I\'m always on the lookout for innovative products, and this website never disappoints. From cutting-edge gadgets to reliable accessories, there\'s something for everyone here. I highly recommend it to fellow tech lovers!"',
     },
   ];
+
+  export const posts = [
+    {
+      id: "1",
+      title: "Exploring the Future of Technology",
+      excerpt: "Discover the latest advancements in technology and what the future holds.",
+      image: "https://i.ibb.co/Ch6NyJY/1.jpg",
+      content: `
+        The future of technology is a rapidly evolving landscape that promises to revolutionize how we live, work, and interact. From artificial intelligence and quantum computing to biotechnology and space exploration, the possibilities are endless. Emerging technologies like 5G, the Internet of Things (IoT), and advanced robotics are set to transform industries and create new opportunities for innovation. As we move forward, ethical considerations and the impact on society will be crucial in shaping a future that benefits all.
+      `,
+    },
+    {
+      id: "2",
+      title: "The Impact of AI on Daily Life",
+      excerpt: "How artificial intelligence is transforming our everyday activities.",
+      image: "https://i.ibb.co/S6H32S7/2.png",
+      content: `
+        Artificial intelligence (AI) is becoming an integral part of our daily lives. From virtual assistants like Siri and Alexa to personalized recommendations on streaming services, AI is enhancing our convenience and efficiency. In healthcare, AI is aiding in diagnostics and treatment planning, while in transportation, it powers autonomous vehicles. As AI continues to advance, its applications will expand, bringing even more profound changes to how we live and work.
+      `,
+    },
+    {
+      id: "3",
+      title: "Understanding Blockchain",
+      excerpt: "A beginner's guide to understanding blockchain technology.",
+      image: "https://i.ibb.co/f1FDhSd/3.jpg",
+      content: `
+        Blockchain technology is a decentralized digital ledger that securely records transactions across multiple computers. Its transparent and immutable nature makes it ideal for applications in finance, supply chain management, and more. By eliminating intermediaries, blockchain can reduce costs and increase efficiency. As industries explore its potential, understanding the basics of blockchain is essential for anyone looking to stay ahead in the digital age.
+      `,
+    },
+    {
+      id: "4",
+      title: "The Rise of Electric Vehicles",
+      excerpt: "Exploring the growth and benefits of electric vehicles.",
+      image: "https://i.ibb.co/tpfZ4SN/4.jpg",
+      content: `
+        Electric vehicles (EVs) are gaining popularity as a sustainable alternative to traditional gasoline-powered cars. With advancements in battery technology, EVs offer longer ranges and faster charging times. Governments and automakers are investing heavily in EV infrastructure, making it easier for consumers to make the switch. Beyond reducing emissions, EVs offer lower operating costs and a quieter driving experience. As the market grows, the future of transportation is set to become greener and more efficient.
+      `,
+    },
+  ];
   

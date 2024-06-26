@@ -75,7 +75,7 @@ const Navbar = () => {
             afterSignOutUrl="/"
             appearance={{
               elements: {
-                avatarBox: "h-10 w-10",
+                avatarBox: "h-6 w-6",
               },
               variables: {
                 colorPrimary: "#144272",
@@ -83,12 +83,12 @@ const Navbar = () => {
             }}
           />
         </SignedIn>
-        
+
         <div className="ml-2 flex items-center gap-2">
-        <Link href={`/wishlist`} className="flex items-center">
-          <Image src="/icons/heart.svg" alt="login" width={20} height={20} />
+          <Link href={`/wishlist`} className="flex items-center">
+            <Image src="/icons/heart.svg" alt="login" width={20} height={20} />
           </Link>
-          <Link href={`/cart`} className="flex items-center">
+          <Link href={`/cart`} className="mr-1 flex items-center">
             <Image src="/icons/cart.svg" alt="login" width={20} height={20} />
             <p>({cart.cartItems.length})</p>
           </Link>
