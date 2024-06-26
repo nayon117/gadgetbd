@@ -7,7 +7,6 @@ const Orders = async () => {
   const { userId } = auth();
   const orders = await getOrders(userId as string);
 
-
   return (
     <div className="px-10 py-5 max-sm:px-3">
       <p className="my-10 font-bold">Your Orders</p>
