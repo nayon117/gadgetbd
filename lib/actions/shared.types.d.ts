@@ -1,29 +1,5 @@
-import { IUser } from "@/mongodb";
-export interface CreateUserParams {
-    clerkId: string;
-    name: string;
-    email: string;
-    picture: string;
-  }
-  export interface GetUserByIdParams {
-    userId: string;
-  }
-  export interface GetAllUsersParams {
-    page?: number;
-    pageSize?: number;
-    filter?: string;
-    searchQuery?: string; 
-  }
-  export interface UpdateUserParams {
-    clerkId: string;
-    updateData: Partial<IUser>;
-    path: string;
-  }
-  export interface DeleteUserParams {
-    clerkId: string;
-  }
 
-  export interface CollectionType  {
+   export interface CollectionType  {
     _id: string;
     title: string;
     description: string;
@@ -52,6 +28,20 @@ export interface CreateUserParams {
     createdAt: string;
     updatedAt: string;
   };
- 
+  export interface OrderType  {
+    shippingAddress: Object;
+    _id: string;
+    customerClerkId: string;
+    // eslint-disable-next-line no-use-before-define
+    products: [OrderItemType]
+    shippingRate: string;
+    totalAmount: number
+  }
+  
+  export interface OrderItemType  {
+    product: ProductType;
+    quantity: number;
+    _id: string;
+  }
 
   
