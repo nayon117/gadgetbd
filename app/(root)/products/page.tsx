@@ -11,7 +11,7 @@ const Products = async () => {
       {!products || products.length === 0 ? (
         <p className="h1-bold">No products found</p>
       ) : (
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {products.map((product: ProductType) => (
             <ProductCard key={product._id} product={product} />
           ))}

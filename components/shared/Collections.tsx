@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Collections = async () => {
   const collections = await getCollections();
-  console.log(collections)
+  console.log(collections);
 
   return (
     <div className="flex flex-col items-center gap-10 px-5 py-8">
@@ -13,7 +13,7 @@ const Collections = async () => {
       {!collections || collections.length === 0 ? (
         <p className="font-bold">No collections found</p>
       ) : (
-        <div className="flex flex-wrap items-center justify-center gap-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {collections.map((collection: CollectionType) => (
             <Link href={`/collections/${collection._id}`} key={collection._id}>
               <Image
