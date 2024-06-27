@@ -16,7 +16,7 @@ const Pagination: FC<PaginationControlsProps> = ({
   const searchParams = useSearchParams();
 
   const page = searchParams.get("page") ?? "1";
-  const perPage = searchParams.get("perPage") ?? "8";
+  const perPage = searchParams.get("perPage") ?? "5";
 
   return (
     <div className="flex gap-2">

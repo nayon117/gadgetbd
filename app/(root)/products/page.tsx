@@ -19,7 +19,7 @@ const Products = async ({
 
   // Get pagination parameters from search params or set default values
   const page = searchParams.page ?? "1";
-  const perPage = searchParams.perPage ?? "8";
+  const perPage = searchParams.perPage ?? "5";
 
   // Calculate start and end indices for slicing the products array
   const start = (Number(page) - 1) * Number(perPage);
