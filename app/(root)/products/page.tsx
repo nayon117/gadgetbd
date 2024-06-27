@@ -1,10 +1,23 @@
 import ProductCard from "@/components/shared/ProductCard";
 import Search from "@/components/shared/Search";
+import Pagination from "@/components/shared/pagination";
 import { getProducts } from "@/lib/actions/product.action";
 import { ProductType } from "@/lib/actions/shared.types";
 
-const Products = async () => {
-  const products = await getProducts();
+const Products = async ({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) => {
+  const product = await getProducts();
+
+  const page = searchParams.page ?? "1";
+  const perPage = searchParams.perPage ?? "8";
+
+  const start = (Number(page) - 1) * Number(perPage);
+  const end = start + Number(perPage);
+
+  const products = product.slice(start, end);
 
   return (
     <div className="py-8">
@@ -21,6 +34,12 @@ const Products = async () => {
           ))}
         </div>
       )}
+      <div className="mt-10 flex w-full items-center justify-center">
+        <Pagination
+          hasNextPage={end < product.length}
+          hasPrevPage={start > 0}
+        />
+      </div>
     </div>
   );
 };
