@@ -3,6 +3,12 @@ import Search from "@/components/shared/Search";
 import Pagination from "@/components/shared/pagination";
 import { getProducts } from "@/lib/actions/product.action";
 import { ProductType } from "@/lib/actions/shared.types";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Products",
+  description: "Products Page of GadgetBd Store",
+};
 
 const Products = async ({
   searchParams,
@@ -11,12 +17,15 @@ const Products = async ({
 }) => {
   const product = await getProducts();
 
+  // Get pagination parameters from search params or set default values
   const page = searchParams.page ?? "1";
   const perPage = searchParams.perPage ?? "8";
 
+  // Calculate start and end indices for slicing the products array
   const start = (Number(page) - 1) * Number(perPage);
   const end = start + Number(perPage);
 
+  // Get the products for the current page
   const products = product.slice(start, end);
 
   return (

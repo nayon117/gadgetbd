@@ -5,7 +5,6 @@ import Link from "next/link";
 
 const Collections = async () => {
   const collections = await getCollections();
-  console.log(collections);
 
   return (
     <div className="flex flex-col items-center gap-10 px-5 py-8">

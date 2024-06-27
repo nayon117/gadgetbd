@@ -6,6 +6,7 @@ import { Input } from "../ui/input";
 import Image from "next/image";
 
 const ContactForm = () => {
+   // Initial state for form data and loading state
   const initialFormData = {
     name: "",
     email: "",
@@ -14,12 +15,14 @@ const ContactForm = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [isLoading, setIsLoading] = useState(false);
 
+    // Handles changes in form input fields
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
+  // Handles form submission
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!formData.name || !formData.email) return;

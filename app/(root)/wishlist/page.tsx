@@ -4,7 +4,13 @@ import ProductCard from "@/components/shared/ProductCard";
 import { getProductDetails } from "@/lib/actions/product.action";
 import { ProductType, UserType } from "@/lib/actions/shared.types";
 import { useUser } from "@clerk/nextjs";
+import { Metadata } from "next";
 import { useEffect, useState } from "react";
+
+export const metadata: Metadata = {
+  title: "Wishlist",
+  description: "view your wishlist items here",
+};
 
 const Wishlist = () => {
   const { user } = useUser();
@@ -13,6 +19,7 @@ const Wishlist = () => {
   const [signedInUser, setSignedInUser] = useState<UserType | null>(null);
   const [wishlist, setWishlist] = useState<ProductType[]>([]);
 
+  // Fetches the signed-in user's details from the API
   const getUser = async () => {
     try {
       const res = await fetch("/api/users");
@@ -30,11 +37,13 @@ const Wishlist = () => {
     }
   }, [user]);
 
+  // Retrieves wishlist products for the signed-in user
   const getWishlistProducts = async () => {
     setLoading(true);
 
     if (!signedInUser) return;
 
+      // Fetch details for each product in the user's wishlist
     const wishlistProducts = await Promise.all(
       signedInUser.wishlist.map(async (productId) => {
         const res = await getProductDetails(productId);

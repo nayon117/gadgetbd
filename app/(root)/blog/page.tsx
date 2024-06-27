@@ -1,7 +1,13 @@
 // pages/blog.tsx
 import { posts } from "@/constants";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Blog Page of GadgetBd Store",
+};
 
 const Blog = () => {
   return (

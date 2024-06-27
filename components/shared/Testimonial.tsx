@@ -56,7 +56,6 @@ const Testimonial = () => {
                   alt="Arrow Right"
                   width={20}
                   height={20}
-                
                 />
               </button>
             </div>
@@ -71,9 +70,7 @@ const Testimonial = () => {
                 <div className="h-full rounded-xl p-6 shadow-xl duration-300 hover:-translate-y-1">
                   <div className="mt-4">
                     <p className="mb-2 text-xl font-bold">{item.name}</p>
-                    <p className="mb-6 ">
-                      {item.content}
-                    </p>
+                    <p className="mb-6 ">{item.content}</p>
                     <div className="flex items-center">
                       <div className="mr-2">
                         <Image

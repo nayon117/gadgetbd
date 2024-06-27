@@ -1,7 +1,13 @@
 import { getOrders } from "@/lib/actions/order.action";
 import { OrderItemType, OrderType } from "@/lib/actions/shared.types";
 import { auth } from "@clerk/nextjs/server";
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Orders",
+  description: "view your orders here.",
+};
 
 const Orders = async () => {
   const { userId } = auth();
@@ -17,10 +23,7 @@ const Orders = async () => {
 
       <div className="flex flex-col gap-10">
         {orders?.map((order: OrderType) => (
-          <div
-            key={order._id}
-            className="flex flex-col gap-8 p-4"
-          >
+          <div key={order._id} className="flex flex-col gap-8 p-4">
             <div className="flex gap-20 max-md:flex-col max-md:gap-3">
               <p className="font-bold">Order ID: {order._id}</p>
               <p className="font-bold">Total Amount: ${order.totalAmount}</p>

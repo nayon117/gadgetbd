@@ -3,8 +3,7 @@ import * as React from "react";
 export const EmailTemplate = ({ name, email, message }:any) => {
   return (
     <div>
-      <h2>You just received a new message from GadgetBD!</h2>
-     
+      <h2>You just received a new message from GadgetBD!</h2>  
       <p>
         <span>Name:</span>
         <strong>{name}</strong>

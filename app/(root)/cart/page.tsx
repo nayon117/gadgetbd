@@ -1,17 +1,24 @@
 "use client";
 
 import useCart from "@/lib/hooks/useCart";
-
 import { useUser } from "@clerk/nextjs";
 import { MinusCircle, PlusCircle, Trash } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "Cart",
+  description:
+    "View and manage items in your cart on GadgetBd Store. calculate total prices, and proceed to checkout.",
+};
 
 const Cart = () => {
   const router = useRouter();
   const { user } = useUser();
   const cart = useCart();
 
+  // Calculate total price of items in the cart
   const total = cart.cartItems.reduce(
     (acc, cartItem) => acc + cartItem.item.price * cartItem.quantity,
     0
@@ -24,6 +31,7 @@ const Cart = () => {
     name: user?.fullName,
   };
 
+  // Handle checkout process
   const handleCheckout = async () => {
     try {
       if (!user) {

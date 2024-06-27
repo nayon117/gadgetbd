@@ -7,9 +7,7 @@ const About = () => {
         <div className="grid grid-cols-12 items-center justify-center gap-5">
           <div className="col-span-12 lg:col-span-6">
             <div className="lg:px-7">
-              <h1 className="h1-bold mb-2">
-                ABOUT US
-              </h1>
+              <h1 className="h1-bold mb-2">ABOUT US</h1>
               <hr className="my-6 h-1 w-24 bg-black opacity-100 dark:bg-white" />
               <p className="my-2 text-lg leading-normal opacity-75">
                 Welcome to GadgetBD! We are passionate about bringing you the

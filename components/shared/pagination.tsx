@@ -16,7 +16,7 @@ const Pagination: FC<PaginationControlsProps> = ({
   const searchParams = useSearchParams();
 
   const page = searchParams.get("page") ?? "1";
-  const perPage = searchParams.get("perPage") ?? "5";
+  const perPage = searchParams.get("perPage") ?? "8";
 
   return (
     <div className="flex gap-2">
@@ -38,9 +38,7 @@ const Pagination: FC<PaginationControlsProps> = ({
         className="primary-gradient p-1 text-white"
         disabled={!hasNextPage}
         onClick={() => {
-          router.push(
-            `/products/?page=${Number(page) + 1}&perPage=${perPage}`
-          );
+          router.push(`/products/?page=${Number(page) + 1}&perPage=${perPage}`);
         }}
       >
         next

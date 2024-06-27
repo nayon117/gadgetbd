@@ -13,12 +13,9 @@ const SuccessfulPayment = () => {
 
   return (
     <div className="flex h-screen flex-col items-center justify-center gap-5">
-      <p className="h1-bold text-red-500">Successful Payment</p>
-      <p>Thank you for your purchase</p>
-      <Link
-        href="/"
-        className="h2-bold border p-4 hover:bg-black hover:text-white"
-      >
+      <p className="h1-bold text-green-500">Successful Payment</p>
+      <p className="text-dark200_light800">Thank you for your purchase</p>
+      <Link href="/" className="h2-bold text-dark200_light800 border p-4">
         CONTINUE TO SHOPPING
       </Link>
     </div>

@@ -19,6 +19,7 @@ const HeartFavorite = ({ product, updateSignedInUser }: HeartFavoriteProps) => {
   const [loading, setLoading] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
 
+  // Fetch user data including wishlist items
   const getUser = async () => {
     try {
       setLoading(true);
@@ -37,6 +38,7 @@ const HeartFavorite = ({ product, updateSignedInUser }: HeartFavoriteProps) => {
     }
   }, [user]);
 
+  // Handle like/unlike button click
   const handleLike = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -61,7 +63,7 @@ const HeartFavorite = ({ product, updateSignedInUser }: HeartFavoriteProps) => {
   return (
     <button onClick={handleLike}>
       {loading ? (
-       <Loader/>
+        <Loader />
       ) : (
         <Heart fill={`${isLiked ? "purple" : "white"}`} />
       )}

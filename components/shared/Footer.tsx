@@ -109,7 +109,7 @@ const Footer = () => {
                   +1 526 654 8965
                 </span>
                 <span className="mt-2 block text-sm  hover:underline ">
-                gadgetbd@email.com
+                  gadgetbd@email.com
                 </span>
               </div>
             </div>

@@ -86,8 +86,11 @@ const Navbar = () => {
         </SignedIn>
 
         <div className="ml-2 flex items-center gap-2">
-          <Link href={`/cart`} className="mr-1 flex items-center  dark:text-white ">
-            <ShoppingCart/>  
+          <Link
+            href={`/cart`}
+            className="mr-1 flex items-center  dark:text-white "
+          >
+            <ShoppingCart />
             <p>({cart.cartItems.length})</p>
           </Link>
         </div>
