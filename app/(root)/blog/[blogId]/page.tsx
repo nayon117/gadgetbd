@@ -21,7 +21,7 @@ const PostDetails = ({ params }: PostDetailsProps) => {
       <Link href="/blog">
         <p className="text-blue-600 hover:underline">&larr; Back to Blog</p>
       </Link>
-      <div className="mt-6 flex flex-col items-center">
+      <div className="text-dark200_light800 mt-6 flex flex-col items-center">
         <h1 className="mb-6 text-4xl font-bold">{post.title}</h1>
         <Image
           src={post.image}

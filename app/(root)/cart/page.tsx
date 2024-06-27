@@ -29,33 +29,35 @@ const Cart = () => {
       if (!user) {
         router.push("sign-in");
       } else {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/checkout`, {
-          method: "POST",
-          body: JSON.stringify({ cartItems: cart.cartItems, customer }),
-        });
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/checkout`,
+          {
+            method: "POST",
+            body: JSON.stringify({ cartItems: cart.cartItems, customer }),
+          }
+        );
         const data = await res.json();
         window.location.href = data.url;
-       
-      } 
+      }
     } catch (err) {
       console.log("[checkout_POST]", err);
     }
   };
 
   return (
-    <div className="flex gap-20 px-10 py-16 max-lg:flex-col max-sm:px-3">
+    <div className="flex gap-20 px-10 py-16 max-lg:flex-col max-sm:px-3 ">
       <div className="w-2/3 max-lg:w-full">
-        <p className="h1-bold">Shopping Cart</p>
+        <p className="h1-bold text-dark200_light800">Shopping Cart</p>
         <hr className="my-6" />
 
         {cart.cartItems.length === 0 ? (
-          <p className="h1-bold">No item in cart</p>
+          <p className="h1-bold text-dark200_light800">No item in cart</p>
         ) : (
           <div>
             {cart.cartItems.map((cartItem) => (
               <div
                 key={cartItem.item._id}
-                className="flex w-full items-center justify-between px-4 py-3 hover:bg-gray-200 max-sm:flex-col max-sm:items-start max-sm:gap-3"
+                className="flex w-full items-center justify-between px-4 py-3  max-sm:flex-col max-sm:items-start max-sm:gap-3"
               >
                 <div className="flex items-center">
                   <Image
@@ -66,26 +68,30 @@ const Cart = () => {
                     alt="product"
                   />
                   <div className="ml-4 flex flex-col gap-3">
-                    <p className="h3-bold">{cartItem.item.title}</p>
+                    <p className="h3-bold text-dark200_light800">
+                      {cartItem.item.title}
+                    </p>
 
-                    <p className="h3-bold">${cartItem.item.price}</p>
+                    <p className="h3-bold text-dark200_light800">
+                      ${cartItem.item.price}
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="text-dark200_light800 flex items-center gap-4">
                   <MinusCircle
                     className="cursor-pointer hover:text-red-500"
                     onClick={() => cart.decreaseQuantity(cartItem.item._id)}
                   />
                   <p className="h3-bold">{cartItem.quantity}</p>
                   <PlusCircle
-                    className="cursor-pointer hover:text-red-500"
+                    className="cursor-pointer hover:text-green-500"
                     onClick={() => cart.increaseQuantity(cartItem.item._id)}
                   />
                 </div>
 
                 <Trash
-                  className="cursor-pointer hover:text-red-500"
+                  className="cursor-pointer dark:text-white"
                   onClick={() => cart.removeItem(cartItem.item._id)}
                 />
               </div>

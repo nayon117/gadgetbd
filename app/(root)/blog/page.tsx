@@ -4,10 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Blog = () => {
-
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="mb-8 text-center text-4xl font-bold">Blogs</h1>
+      <h1 className="text-dark200_light800 mb-8 text-center text-4xl font-bold">
+        Blogs
+      </h1>
       {!posts || posts.length === 0 ? (
         <p className="text-center font-bold">No blog posts found</p>
       ) : (

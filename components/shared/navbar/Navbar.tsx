@@ -8,6 +8,7 @@ import { navbarLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import useCart from "@/lib/hooks/useCart";
+import { ShoppingCart } from "lucide-react";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -86,9 +87,7 @@ const Navbar = () => {
 
         <div className="ml-2 flex items-center gap-2">
           <Link href={`/cart`} className="mr-1 flex items-center  dark:text-white ">
-            <Image src="/icons/cart.svg" alt="login" width={20} height={20} 
-            className="dark:bg-white"
-            />
+            <ShoppingCart/>  
             <p>({cart.cartItems.length})</p>
           </Link>
         </div>
