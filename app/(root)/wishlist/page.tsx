@@ -4,13 +4,8 @@ import ProductCard from "@/components/shared/ProductCard";
 import { getProductDetails } from "@/lib/actions/product.action";
 import { ProductType, UserType } from "@/lib/actions/shared.types";
 import { useUser } from "@clerk/nextjs";
-import { Metadata } from "next";
 import { useEffect, useState } from "react";
 
-export const metadata: Metadata = {
-  title: "Wishlist",
-  description: "view your wishlist items here",
-};
 
 const Wishlist = () => {
   const { user } = useUser();
