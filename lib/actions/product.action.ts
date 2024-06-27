@@ -18,3 +18,28 @@ export const getProducts = async () => {
     })
     return await relatedProducts.json()
   }
+
+
+  export const getSearchedProducts = async (query: string) => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/search/${query}`);
+      
+      // Check if the response is OK (status code 200-299)
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      // Check if the response is JSON
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new TypeError("Response is not JSON");
+      }
+  
+      // Parse the JSON response
+      const searchedProducts = await response.json();
+      return searchedProducts;
+    } catch (error) {
+      console.error("Error fetching searched products:", error);
+      throw error; // Re-throw the error after logging it
+    }
+  };
