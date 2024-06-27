@@ -5,6 +5,7 @@ import { useUser } from "@clerk/nextjs";
 import { Heart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import Loader from "./Loader";
 
 interface HeartFavoriteProps {
   product: ProductType;
@@ -59,7 +60,11 @@ const HeartFavorite = ({ product, updateSignedInUser }: HeartFavoriteProps) => {
 
   return (
     <button onClick={handleLike}>
-      <Heart fill={`${isLiked ? "purple" : "white"}`} />
+      {loading ? (
+       <Loader/>
+      ) : (
+        <Heart fill={`${isLiked ? "purple" : "white"}`} />
+      )}
     </button>
   );
 };
