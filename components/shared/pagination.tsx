@@ -30,7 +30,7 @@ const Pagination: FC<PaginationControlsProps> = ({
         prev
       </button>
 
-      <div>
+      <div className="text-dark200_light800">
         {page} / {Math.ceil(10 / Number(perPage))}
       </div>
 
