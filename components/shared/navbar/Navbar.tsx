@@ -85,8 +85,10 @@ const Navbar = () => {
         </SignedIn>
 
         <div className="ml-2 flex items-center gap-2">
-          <Link href={`/cart`} className="mr-1 flex items-center">
-            <Image src="/icons/cart.svg" alt="login" width={20} height={20} />
+          <Link href={`/cart`} className="mr-1 flex items-center  dark:text-white ">
+            <Image src="/icons/cart.svg" alt="login" width={20} height={20} 
+            className="dark:bg-white"
+            />
             <p>({cart.cartItems.length})</p>
           </Link>
         </div>
