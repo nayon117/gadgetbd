@@ -6,6 +6,7 @@ import { MinusCircle, PlusCircle } from "lucide-react";
 import useCart from "@/lib/hooks/useCart";
 import { ProductType } from "@/lib/actions/shared.types";
 import HeartFavorite from "./HeartFavorate";
+import { Button } from "../ui/button";
 
 const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
   const [quantity, setQuantity] = useState<number>(1);
@@ -15,23 +16,23 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
   return (
     <div className="flex max-w-[400px] flex-col gap-4">
       <div className="flex items-center justify-between">
-        <p className="h2-bold">{productInfo.title}</p>
+        <p className="h3-bold text-dark200_light800">{productInfo.title}</p>
         <HeartFavorite product={productInfo} />
       </div>
 
       <div className="flex gap-2">
-        <p className="h3-bold">Category:</p>
-        <p className="h3-bold">{productInfo.category}</p>
+        <p className="h3-bold text-dark200_light800">Category:</p>
+        <p className="h3-bold text-dark200_light800">{productInfo.category}</p>
       </div>
 
-      <p className="h3-bold">$ {productInfo.price}</p>
+      <p className="h3-bold text-dark200_light800">$ {productInfo.price}</p>
 
-      <div className="flex flex-col gap-2">
+      <div className="text-dark200_light800 flex flex-col gap-2">
         <p className="h3-bold">Description:</p>
         <p className="font-medium">{productInfo.description}</p>
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="text-dark200_light800 flex flex-col gap-2">
         <p className="h3-bold">Quantity:</p>
         <div className="flex items-center gap-4">
           <MinusCircle
@@ -46,8 +47,8 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
         </div>
       </div>
 
-      <button
-        className="rounded-lg py-3 font-bold outline hover:bg-black hover:text-white"
+      <Button
+        className="btn rounded-lg py-3 font-bold outline  dark:text-white"
         onClick={() => {
           cart.addItem({
             item: productInfo,
@@ -56,7 +57,7 @@ const ProductInfo = ({ productInfo }: { productInfo: ProductType }) => {
         }}
       >
         Add To Cart
-      </button>
+      </Button>
     </div>
   );
 };

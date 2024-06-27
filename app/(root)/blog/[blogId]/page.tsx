@@ -30,7 +30,7 @@ const PostDetails = ({ params }: PostDetailsProps) => {
           height={400}
           className="mb-6 w-full rounded-lg object-cover shadow-lg"
         />
-        <div className="prose max-w-4xl">
+        <div className="text-dark200_light800 prose max-w-4xl">
           <p>{post.content}</p>
         </div>
       </div>

@@ -56,8 +56,8 @@ const Wishlist = () => {
 
 
   return loading ? <Loader /> : (
-    <div className="px-10 py-5">
-      <p className="h1-bold my-10">Your Wishlist</p>
+    <div className="px-10 py-5 text-dark200_light800">
+      <p className="h1-bold my-10 ">Your Wishlist</p>
       {wishlist.length === 0 && (
         <p>No items in your wishlist</p>
       )}

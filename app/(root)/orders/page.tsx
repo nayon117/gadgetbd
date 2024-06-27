@@ -8,8 +8,8 @@ const Orders = async () => {
   const orders = await getOrders(userId as string);
 
   return (
-    <div className="px-10 py-5 max-sm:px-3">
-      <p className="my-10 font-bold">Your Orders</p>
+    <div className="text-dark200_light800 px-10 py-5 max-sm:px-3">
+      <p className="my-10 font-bold ">Your Orders</p>
       {!orders ||
         (orders.length === 0 && (
           <p className="my-5 font-bold">You have no orders yet.</p>

@@ -9,9 +9,9 @@ const Collections = async () => {
 
   return (
     <div className="flex flex-col items-center gap-10 px-5 py-8">
-      <p className="h1-bold mt-6">Collections</p>
+      <p className="h1-bold text-dark200_light800 mt-6">Collections</p>
       {!collections || collections.length === 0 ? (
-        <p className="font-bold">No collections found</p>
+        <p className="text-dark200_light800 font-bold">No collections found</p>
       ) : (
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {collections.map((collection: CollectionType) => (
