@@ -15,18 +15,24 @@ const Products = async ({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
-  const product = await getProducts();
+  // Explicitly type allProducts
+  const allProducts: ProductType[] = await getProducts();
 
-  // Get pagination parameters from search params or set default values
-  const page = searchParams.page ?? "1";
-  const perPage = searchParams.perPage ?? "5";
+  // Extract search query
+  const searchQuery = (searchParams.query as string) || "";
 
-  // Calculate start and end indices for slicing the products array
-  const start = (Number(page) - 1) * Number(perPage);
-  const end = start + Number(perPage);
+  // Filter products by search query (case-insensitive)
+  const filteredProducts: ProductType[] = allProducts.filter(
+    (product: ProductType) =>
+      product.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
-  // Get the products for the current page
-  const products = product.slice(start, end);
+  // Pagination
+  const page = Number(searchParams.page) || 1;
+  const perPage = 8; // 8 products per page
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+  const products: ProductType[] = filteredProducts.slice(start, end);
 
   return (
     <div className="py-8">
@@ -34,8 +40,9 @@ const Products = async ({
         <p className="h1-bold text-dark200_light800">Products</p>
         <Search />
       </div>
-      {!products || products.length === 0 ? (
-        <p className="h1-bold text-dark200_light800 ">No products found</p>
+
+      {products.length === 0 ? (
+        <p className="h1-bold text-dark200_light800">No products found</p>
       ) : (
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {products.map((product: ProductType) => (
@@ -43,9 +50,10 @@ const Products = async ({
           ))}
         </div>
       )}
+
       <div className="mt-10 flex w-full items-center justify-center">
         <Pagination
-          hasNextPage={end < product.length}
+          hasNextPage={end < filteredProducts.length}
           hasPrevPage={start > 0}
         />
       </div>
