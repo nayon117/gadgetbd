@@ -6,7 +6,6 @@ import { ProductType, UserType } from "@/lib/actions/shared.types";
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 
-
 const Wishlist = () => {
   const { user } = useUser();
 
@@ -17,42 +16,56 @@ const Wishlist = () => {
   // Fetches the signed-in user's details from the API
   const getUser = async () => {
     try {
+      setLoading(true);
       const res = await fetch("/api/users");
-      const data = await res.json();
+      const data: UserType = await res.json();
       setSignedInUser(data);
-      setLoading(false);
     } catch (err) {
-      console.log("[users_GET", err);
+      console.error("[users_GET]", err);
+      setSignedInUser(null);
+    } finally {
+      setLoading(false);
     }
   };
 
-  useEffect(() => {
-    if(!user) {
-        setLoading(false);
+  // Retrieve wishlist products for the signed-in user
+  const getWishlistProducts = async () => {
+    if (!signedInUser) return;
+
+    if (!signedInUser.wishlist || signedInUser.wishlist.length === 0) {
+      setWishlist([]);
+      return;
     }
-    else {
+
+    try {
+      setLoading(true);
+      const wishlistProducts: ProductType[] = await Promise.all(
+        signedInUser.wishlist.map(async (productId) => {
+          const res = await getProductDetails(productId);
+          return res;
+        })
+      );
+      setWishlist(wishlistProducts);
+    } catch (err) {
+      console.error("[wishlist_GET]", err);
+      setWishlist([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Fetch user details when user changes
+  useEffect(() => {
+    if (!user) {
+      setSignedInUser(null);
+      setWishlist([]);
+      setLoading(false);
+    } else {
       getUser();
     }
   }, [user]);
 
-  // Retrieves wishlist products for the signed-in user
-  const getWishlistProducts = async () => {
-    setLoading(true);
-
-    if (!signedInUser) return;
-
-      // Fetch details for each product in the user's wishlist
-    const wishlistProducts = await Promise.all(
-      signedInUser.wishlist.map(async (productId) => {
-        const res = await getProductDetails(productId);
-        return res;
-      })
-    );
-
-    setWishlist(wishlistProducts);
-    setLoading(false);
-  };
-
+  // Fetch wishlist products when signedInUser is loaded
   useEffect(() => {
     if (signedInUser) {
       getWishlistProducts();
@@ -67,14 +80,18 @@ const Wishlist = () => {
     <Loader />
   ) : (
     <div className="text-dark200_light800 px-10 py-5">
-      <p className="h1-bold my-10 ">Your Wishlist</p>
-      {wishlist.length === 0 && <p>No items in your wishlist</p>}
+      <p className="h1-bold my-10">Your Wishlist</p>
+
+      {(!signedInUser || wishlist.length === 0) && (
+        <p>No items in your wishlist</p>
+      )}
 
       <div className="flex flex-wrap justify-center gap-16">
         {wishlist.map((product) => (
           <ProductCard
             key={product._id}
             product={product}
+            signedInUser={signedInUser}
             updateSignedInUser={updateSignedInUser}
           />
         ))}
