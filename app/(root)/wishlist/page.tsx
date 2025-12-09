@@ -27,7 +27,10 @@ const Wishlist = () => {
   };
 
   useEffect(() => {
-    if (user) {
+    if(!user) {
+        setLoading(false);
+    }
+    else {
       getUser();
     }
   }, [user]);

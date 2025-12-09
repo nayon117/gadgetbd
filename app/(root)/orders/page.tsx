@@ -11,6 +11,15 @@ export const metadata: Metadata = {
 
 const Orders = async () => {
   const { userId } = auth();
+
+  if (!userId) {
+    return (
+      <div className="text-dark200_light800 px-10 py-5 max-sm:px-3">
+        <p className="my-10 font-bold ">You need to be signed in to view your orders.</p>
+      </div>
+    );
+  }
+
   const orders = await getOrders(userId as string);
 
   return (
